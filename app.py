@@ -20,7 +20,7 @@ initialize_session_state()
 uploaded_file_placeholder = st.empty()
 tool_dialog = st.empty()
 
-@st.experimental_fragment
+@st.fragment
 def update_model():
     llm_provider = st.session_state.llm_model if st.session_state.llm_model != "Local" else st.session_state.local_model
     api_key = get_api_key(llm_provider)
@@ -121,7 +121,7 @@ def fix_messages(messages):
     
     return fixed_messages
 
-@st.experimental_fragment
+@st.fragment
 def generate_llm_response():
     if st.session_state.llm_model != "Local":
         model = st.session_state.llm_model.replace(" ", "").lower() + "/" + st.session_state["model_name"]
